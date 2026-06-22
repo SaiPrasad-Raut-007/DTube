@@ -1,0 +1,9 @@
+/* ── Main layout ────────────────────────────────── */
+.app-layout {
+    margin-left: 240px;    
+    margin-top: 56px;      
+    padding: 24px;
+    background-color: #0f0f0f;
+    min-height: calc(100vh - 56px);
+    color: #f1f1f1;
+}
