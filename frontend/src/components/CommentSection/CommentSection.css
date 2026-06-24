@@ -1,0 +1,95 @@
+.comment-section {
+    margin-top: 24px;
+    font-family: Roboto, Arial, sans-serif;
+    color: #f1f1f1;
+}
+
+.comment-count {
+    font-size: 1.25rem;
+    margin: 0 0 24px 0;
+}
+
+.comment-card {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.comment-user-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0; 
+}
+
+.comment-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.comment-header-info {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 4px;
+}
+
+.comment-user-name {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: #f1f1f1;
+    letter-spacing: 5%;
+}
+
+.comment-date {
+    font-size: 0.75rem;
+    color: #aaaaaa;
+}
+
+.comment-text {
+    font-size: 0.875rem;
+    line-height: 1.4;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.comment-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.comment-action-btn, 
+.comment-reply-btn {
+    background: transparent;
+    border: none;
+    color: #f1f1f1;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    padding: 0;
+    font-family: inherit;
+}
+
+.comment-action-btn .material-symbols-rounded {
+    font-size: 1rem;
+}
+
+.comment-like-count {
+    font-size: 0.75rem;
+    color: #aaaaaa;
+}
+
+.comment-reply-btn {
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 16px;
+    margin-left: 8px;
+}
+
+.comment-reply-btn:hover {
+    background-color: #272727;
+}

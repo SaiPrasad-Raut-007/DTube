@@ -1,0 +1,65 @@
+.library-page {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 32px 24px;
+    font-family: Roboto, Arial, sans-serif;
+    color: #f1f1f1;
+}
+
+.library-section {
+    margin-bottom: 48px;
+    border-bottom: 1px solid #3f3f3f;
+    padding-bottom: 40px;
+}
+
+.library-section:last-child {
+    border-bottom: none;
+}
+
+.library-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.library-section-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.library-section-title .material-symbols-rounded {
+    font-size: 1.5rem;
+}
+
+.library-see-all-btn {
+    background: transparent;
+    color: #2ecc71;
+    border: none;
+    border-radius: 18px;
+    padding: 8px 16px;
+    font-weight: 500;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.library-see-all-btn:hover {
+    background-color: #1a3a26;
+}
+
+.library-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.library-card-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

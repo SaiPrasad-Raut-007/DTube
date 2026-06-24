@@ -1,7 +1,11 @@
-import logo from "../assets/logo.png"
 import { useState } from "react";
+import './Sidebar.css';
 
-export default function Sidebar() {
+export default function Sidebar({sidebarActive}) {
+    return sidebarActive ? <ExpandedSidebar /> : <CollapsedSidebar />
+}
+
+const ExpandedSidebar = () => {
     const subscriptionList = ["Mr.Beast", "ConnorDawg", "IronMouse", "ZanosVulture"];
 
     const [youOpen, setYouOpen] = useState(true);
@@ -9,14 +13,13 @@ export default function Sidebar() {
 
     return (
         <div className="side-bar">
-            <img src={logo} alt="DTube" className="logo"></img>
             <h2 className="side-bar-button">
                 <span className="material-symbols-rounded">home</span>
                 Home
             </h2>
             <h2 className="side-bar-button">
                 <span className="material-symbols-rounded">explore</span>
-                Explore
+                Library
             </h2>
             <h2 className="side-bar-button">
                 <span className="material-symbols-rounded">subscriptions</span>
@@ -92,4 +95,30 @@ export default function Sidebar() {
 
         </div>
     )
+}
+
+const CollapsedSidebar = () => {
+    return (
+        <div className="collapsed-side-bar">
+            <div className="collapsed-side-bar-button">
+                <span className="material-symbols-rounded">home</span>
+                <span className="collapsed-label">Home</span>
+            </div>
+            
+            <div className="collapsed-side-bar-button">
+                <span className="material-symbols-rounded">explore</span>
+                <span className="collapsed-label">Library</span>
+            </div>
+            
+            <div className="collapsed-side-bar-button">
+                <span className="material-symbols-rounded">subscriptions</span>
+                <span className="collapsed-label">Subscriptions</span>
+            </div>
+            
+            <div className="collapsed-side-bar-button">
+                <span className="material-symbols-rounded">account_circle</span>
+                <span className="collapsed-label">You</span>
+            </div>
+        </div>
+    );
 }

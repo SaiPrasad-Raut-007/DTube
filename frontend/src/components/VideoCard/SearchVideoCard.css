@@ -1,0 +1,113 @@
+.search-video-card {
+    display: flex;
+    gap: 16px;
+    width: 100%;
+    max-width: 1000px;
+    cursor: pointer;
+    font-family: Roboto, Arial, sans-serif;
+    color: #f1f1f1;
+    text-decoration: none;
+    margin-bottom: 8px;
+}
+
+.search-thumbnail-container {
+    position: relative;
+    flex-shrink: 0;
+    width: 360px; 
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.search-thumbnail {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.2s;
+}
+
+.search-video-card:hover .search-thumbnail {
+    transform: scale(1.02);
+}
+
+.search-video-length {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 3px 4px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.search-video-details {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    min-width: 0; 
+    padding-top: 4px;
+}
+
+.search-video-title {
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 1.4;
+    margin: 0 0 4px 0;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.search-video-stats {
+    font-size: 0.75rem;
+    color: #aaaaaa;
+    margin: 0 0 12px 0;
+}
+
+/* ── Creator Info ── */
+.search-video-creator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.search-creator-pic {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.search-creator-name {
+    font-size: 0.75rem;
+    color: #aaaaaa;
+}
+
+.search-creator-name:hover {
+    color: #f1f1f1;
+}
+
+.search-video-description {
+    font-size: 0.75rem;
+    color: #aaaaaa;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+    .search-video-card {
+        flex-direction: column; 
+    }
+    
+    .search-thumbnail-container {
+        width: 100%;
+    }
+}

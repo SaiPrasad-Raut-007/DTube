@@ -1,0 +1,68 @@
+.featured-video-card {
+    display: flex;
+    gap: 24px;
+    padding: 24px 0;
+    border-bottom: 1px solid #3f3f3f;
+    cursor: pointer;
+    font-family: Roboto, Arial, sans-serif;
+    color: #f1f1f1;
+}
+
+.featured-thumbnail-container {
+    position: relative;
+    flex-shrink: 0;
+    width: 424px; 
+}
+
+.featured-thumbnail {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.featured-video-length {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 3px 4px;
+    border-radius: 4px;
+    margin: 0;
+}
+
+.featured-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 8px;
+}
+
+.featured-title {
+    font-size: 1.125rem;
+    font-weight: 500;
+    margin: 0 0 8px 0;
+    line-height: 1.4;
+    color: #f1f1f1;
+}
+
+.featured-stats {
+    font-size: 0.75rem;
+    color: #aaaaaa;
+    margin: 0 0 12px 0;
+}
+
+.featured-description {
+    font-size: 0.875rem;
+    color: #aaaaaa;
+    margin: 0;
+    line-height: 1.4;
+    display: -webkit-box;
+    /* -webkit-line-clamp: 3; */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

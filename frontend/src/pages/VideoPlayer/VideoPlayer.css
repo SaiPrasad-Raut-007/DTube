@@ -1,0 +1,36 @@
+.video-page-layout {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 24px;
+    padding: 24px;
+    max-width: 1750px;
+    margin: 0 auto;
+    align-items: flex-start;
+}
+
+.primary-column {
+    flex: 1;
+    max-width: 1280px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.secondary-column {
+    width: 402px;
+    flex-shrink: 0;
+}
+
+@media (max-width: 1024px) {
+    .video-page-layout {
+        flex-direction: column;
+        padding: 16px;
+    }
+
+    .secondary-column {
+        width: 100%;
+        max-width: 100%;
+    }
+}

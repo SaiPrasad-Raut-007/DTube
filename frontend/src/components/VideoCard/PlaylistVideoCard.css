@@ -1,0 +1,113 @@
+.playlist-video-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: Roboto, Arial, sans-serif;
+    color: #f1f1f1;
+    transition: background-color 0.2s;
+}
+
+.playlist-video-card:hover {
+    background-color: #272727;
+}
+
+.playlist-video-index {
+    width: 24px;
+    text-align: center;
+    font-size: 0.875rem;
+    color: #aaaaaa;
+    font-weight: 500;
+    flex-shrink: 0;
+}
+
+.playlist-video-thumbnail-container {
+    position: relative;
+    width: 160px; 
+    flex-shrink: 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.playlist-video-thumbnail {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    display: block;
+}
+
+.playlist-video-length {
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.playlist-video-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+    min-width: 0;
+}
+
+.playlist-video-title {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.4;
+    margin: 0 0 4px 0;
+    color: #f1f1f1;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.playlist-video-subtitle {
+    font-size: 0.75rem;
+    color: #aaaaaa;
+    margin: 0;
+}
+
+.playlist-video-options {
+    background: transparent;
+    border: none;
+    color: #f1f1f1;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0; 
+    transition: opacity 0.2s, background-color 0.2s;
+}
+
+.playlist-video-options:hover {
+    background-color: #3f3f3f;
+}
+
+.playlist-video-card:hover .playlist-video-options {
+    opacity: 1;
+}
+
+@media (max-width: 600px) {
+    .playlist-video-card {
+        padding: 8px;
+        gap: 8px;
+    }
+    .playlist-video-thumbnail-container {
+        width: 120px;
+    }
+    .playlist-video-index {
+        display: none; 
+    }
+}

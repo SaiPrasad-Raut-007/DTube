@@ -1,0 +1,114 @@
+.playlist-details-page {
+    display: flex;
+    align-items: flex-start; 
+    gap: 32px;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 24px;
+    font-family: Roboto, Arial, sans-serif;
+}
+
+.playlist-left-column {
+    width: 360px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 80px;
+}
+
+.playlist-info-card {
+    background: linear-gradient(to bottom, #2b3a4a, #0f0f0f); 
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+.playlist-main-thumbnail {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.playlist-main-title {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin: 0 0 16px 0;
+    line-height: 1.3;
+}
+
+.playlist-creator-name {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #f1f1f1;
+    margin: 0 0 8px 0;
+}
+
+.playlist-stats {
+    display: flex;
+    gap: 12px;
+    font-size: 0.75rem;
+    color: #aaaaaa;
+    margin-bottom: 16px;
+}
+
+.playlist-action-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.play-all-btn,
+.shuffle-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: none;
+    border-radius: 18px;
+    padding: 10px 16px;
+    font-weight: 500;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.play-all-btn {
+    flex: 1;
+    background-color: #f1f1f1;
+    color: #0f0f0f;
+}
+
+.shuffle-btn {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #f1f1f1;
+}
+
+.play-all-btn:hover,
+.shuffle-btn:hover {
+    opacity: 0.85;
+}
+
+.playlist-right-column {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 12px;
+}
+
+@media (max-width: 900px) {
+    .playlist-details-page {
+        flex-direction: column; 
+        padding: 16px;
+    }
+
+    .playlist-left-column {
+        width: 100%;
+        position: relative;
+        top: 0;
+    }
+}

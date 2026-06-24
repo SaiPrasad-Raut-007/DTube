@@ -1,0 +1,60 @@
+.subscriptions-layout {
+    width: 100%;
+    max-width: 1600px; 
+    margin: 0 auto;
+    padding: 24px;
+    font-family: Roboto, Arial, sans-serif;
+    color: #f1f1f1;
+}
+
+.subscriptions-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.subscriptions-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.subs-subtitle {
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0 0 24px 0;
+}
+
+.all-subs-btn {
+    background-color: transparent;
+    color: #31A746;
+    border: none;
+    border-radius: 18px;
+    padding: 8px 16px;
+    font-weight: 500;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.all-subs-btn:hover {
+    background-color: #152b16; 
+}
+
+.subs-content-container {
+    width: 100%;
+}
+
+
+.subs-video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 40px 16px; 
+}
+
+.subs-channel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    gap: 32px 16px;
+}

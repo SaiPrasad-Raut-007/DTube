@@ -1,0 +1,33 @@
+.channel-content-wrapper {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px 48px 24px;
+    font-family: Roboto, Arial, sans-serif;
+}
+
+.videos-collection,
+.playlist-collection,
+.channels-collection {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2px;
+    padding: 20px; 
+    max-width: 1800px; 
+    margin: 0 auto; 
+}
+
+.post-collection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 24px;
+    width: 100%;
+}
+
+.playlist-card-wrapper,
+.channel-card-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
