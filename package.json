@@ -1,0 +1,26 @@
+{
+  "name": "dtube",
+  "version": "1.0.0",
+  "description": "Task 3 of DeltaForce, DTube is a video streaming platform.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon backend/index.js",
+    "start": "node backend/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SaiPrasad-Raut-007/DTube.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SaiPrasad-Raut-007/DTube/issues"
+  },
+  "homepage": "https://github.com/SaiPrasad-Raut-007/DTube#readme",
+  "dependencies": {
+    "express": "^5.2.1",
+    "nodemon": "^3.1.14"
+  }
+}
