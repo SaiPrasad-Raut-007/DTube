@@ -3,6 +3,7 @@ import './Header.css';
 import { useState } from "react"
 import SearchBar from "./SearchBar"
 import logo from "../../assets/logo.png"
+import { Link } from 'react-router-dom';
 
 export default function Header({sidebarActive, setSidebarActive}) {
 
@@ -37,24 +38,24 @@ export default function Header({sidebarActive, setSidebarActive}) {
                         className="profile-avatar"
                         onClick={() => setProfileOpen(!profileOpen)}
                     >
-                        U
+                        S
                     </button>
 
                     {profileOpen && (
                         <div className="profile-dropdown">
-                            <a href="#" className="dropdown-item">
+                            <Link to="/channel" className="dropdown-item">
                                 <span className="material-symbols-rounded">account_circle</span>
                                 Your Channel
-                            </a>
-                            <a href="#" className="dropdown-item">
+                            </Link>
+                            <Link to="/settings" className="dropdown-item">
                                 <span className="material-symbols-rounded">settings</span>
                                 Settings
-                            </a>
+                            </Link>
                             <hr className="dropdown-divider" />
-                            <a href="#" className="dropdown-item">
+                            <Link className="dropdown-item">
                                 <span className="material-symbols-rounded">logout</span>
                                 Sign Out
-                            </a>
+                            </Link>
                         </div>
                     )}
                 </div>

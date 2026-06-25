@@ -1,5 +1,6 @@
 import { useState } from "react";
 import './Sidebar.css';
+import { Link } from "react-router-dom";
 
 export default function Sidebar({sidebarActive}) {
     return sidebarActive ? <ExpandedSidebar /> : <CollapsedSidebar />
@@ -13,18 +14,18 @@ const ExpandedSidebar = () => {
 
     return (
         <div className="side-bar">
-            <h2 className="side-bar-button">
+            <Link to="/" className="side-bar-button">
                 <span className="material-symbols-rounded">home</span>
                 Home
-            </h2>
-            <h2 className="side-bar-button">
+            </Link>
+            <Link to="/library" className="side-bar-button">
                 <span className="material-symbols-rounded">explore</span>
                 Library
-            </h2>
-            <h2 className="side-bar-button">
+            </Link>
+            <Link to="/subscriptions" className="side-bar-button">
                 <span className="material-symbols-rounded">subscriptions</span>
                 Subscriptions
-            </h2>
+            </Link>
 
             <hr className="side-bar-divider" />
 
@@ -41,22 +42,22 @@ const ExpandedSidebar = () => {
             {youOpen && (
                 <ul>
                     <li>
-                        <a href="#">
+                        <Link to="/channel">
                             <span className="material-symbols-rounded">account_circle</span>
                             Your Channel
-                        </a>
+                        </Link>
                     </li>
                     <li>
-                        <a href="#">
+                        <Link to="/library">
                             <span className="material-symbols-rounded">playlist_play</span>
                             Playlist
-                        </a>
+                        </Link>
                     </li>
                     <li>
-                        <a href="#">
+                        <Link to="/playlist">
                             <span className="material-symbols-rounded">thumb_up</span>
                             Liked videos
-                        </a>
+                        </Link>
                     </li>
                 </ul>
             )}
@@ -77,10 +78,10 @@ const ExpandedSidebar = () => {
                 <ul>
                     {subscriptionList.map((element) => (
                         <li key={element}>
-                            <a href="#">
+                            <Link to="/channel">
                                 <div className="sub-avatar">{element[0]}</div>
                                 {element}
-                            </a>
+                            </Link>
                         </li>
                     ))}
                 </ul>
@@ -88,11 +89,10 @@ const ExpandedSidebar = () => {
 
             <hr className="side-bar-divider" />
 
-            <h2 className="side-bar-button">
+            <Link to="settings" className="side-bar-button">
                 <span className="material-symbols-rounded">settings</span>
                 Settings
-            </h2>
-
+            </Link>
         </div>
     )
 }
@@ -100,25 +100,26 @@ const ExpandedSidebar = () => {
 const CollapsedSidebar = () => {
     return (
         <div className="collapsed-side-bar">
-            <div className="collapsed-side-bar-button">
+            <Link to="/" className="collapsed-side-bar-button">
                 <span className="material-symbols-rounded">home</span>
                 <span className="collapsed-label">Home</span>
-            </div>
+            </Link>
             
-            <div className="collapsed-side-bar-button">
+            <Link to="/library" className="collapsed-side-bar-button">
                 <span className="material-symbols-rounded">explore</span>
                 <span className="collapsed-label">Library</span>
-            </div>
+            </Link>
             
-            <div className="collapsed-side-bar-button">
+            <Link to="/subscriptions" className="collapsed-side-bar-button">
                 <span className="material-symbols-rounded">subscriptions</span>
                 <span className="collapsed-label">Subscriptions</span>
-            </div>
+            </Link>
             
-            <div className="collapsed-side-bar-button">
+            <Link to="/library" className="collapsed-side-bar-button"> 
+            {/* Changes are required here */}
                 <span className="material-symbols-rounded">account_circle</span>
                 <span className="collapsed-label">You</span>
-            </div>
+            </Link>
         </div>
     );
 }

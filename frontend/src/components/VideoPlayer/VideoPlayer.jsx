@@ -1,4 +1,5 @@
 import './VideoPlayer.css'
+import { Link } from 'react-router-dom';
 
 export default function VideoPlayer() {
     const video_title = "Building a Complete YouTube Clone in React & CSS";
@@ -17,11 +18,13 @@ export default function VideoPlayer() {
                 
                 <div className="video-primary-details">
                     <div className="creator-details-section">
-                        <img className="creator-pic" src={creator_pic} alt={creator_name} />
-                        <div className="creator-text-info">
-                            <h4 className="video-creator-name">{creator_name}</h4>
-                            <h5 className="video-creator-subs">{creator_subs}</h5>
-                        </div>
+                            <Link to="/channel" className='creator-link'><img className="creator-pic" src={creator_pic} alt={creator_name} /></Link>
+                            <Link to="/channel" className='creator-link'>
+                            <div className="creator-text-info">
+                                <h4 className="video-creator-name">{creator_name}</h4>
+                                <h5 className="video-creator-subs">{creator_subs}</h5>
+                            </div>
+                            </Link>
                         <button className="subscribe-button">Subscribe</button>
                     </div>
 

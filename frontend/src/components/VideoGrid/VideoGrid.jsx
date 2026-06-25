@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { ChannelVideoCard } from "../VideoCard/VideoCard";
 import './VideoGrid.css';
+import { Link } from 'react-router-dom';
 
 export default function VideoGrid({ title, description, is_playlist = false, video_list = [] }) {
     const trackRef = useRef(null);
@@ -38,7 +39,7 @@ export default function VideoGrid({ title, description, is_playlist = false, vid
     return(
         <div className="video-grid-section">
             <div className="video-grid-header">
-                <h2 className="video-grid-title">{title}</h2>
+                <Link to="/playlist" className="video-grid-title">{title}</Link>
                 {is_playlist && description && (
                     <p className="video-grid-description">{description}</p>
                 )}

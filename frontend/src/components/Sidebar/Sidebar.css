@@ -28,6 +28,13 @@
     border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.15s;
+    text-decoration: none;
+    color: inherit;
+}
+
+Link {
+    text-decoration: none;
+    color: inherit;
 }
 
 .side-bar-button:hover {
@@ -149,4 +156,10 @@
     text-overflow: ellipsis;
     max-width: 100%;
     padding: 0 4px;
+}
+
+.collapsed-side-bar-button,
+.side-bar-button {
+    text-decoration: none; 
+    color: inherit;        
 }

@@ -6,6 +6,7 @@
     font-family: Roboto, Arial, sans-serif;
     border-radius: 12px;
     padding: 8px;
+    text-decoration: none;
 }
 
 .video-card:hover {
@@ -79,4 +80,8 @@
 
 .video-card-content-creator:hover {
     color: #cccccc;
+}
+
+.video-card-content-creator {
+    text-decoration: none;
 }

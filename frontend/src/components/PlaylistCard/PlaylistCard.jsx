@@ -1,8 +1,9 @@
 import './PlaylistCard.css'; 
+import { Link } from 'react-router-dom';
 
 export const PlaylistCard = ({ channel_name, channel_pic, playlist_name, thumbnail, video_count }) => {
     return (
-        <div className="playlist-card">
+        <Link to="/playlist" className="playlist-card">
             <div className="playlist-thumbnail-container">
                 <img className="playlist-thumbnail" src={thumbnail} alt={playlist_name} />
                 
@@ -24,7 +25,7 @@ export const PlaylistCard = ({ channel_name, channel_pic, playlist_name, thumbna
                 </div>
                 <span className="playlist-subtitle">View full playlist</span>
             </div>
-        </div>
+        </Link>
     );
 };
 
@@ -32,7 +33,7 @@ export const MixPlaylistCard = ({ channel_name_list = [], mix_name, thumbnail })
     const channelsString = channel_name_list.join(", ");
 
     return (
-        <div className="mix-playlist-card">
+        <Link to="/playlist" className="mix-playlist-card">
             <div className="playlist-thumbnail-container">
                 <img className="playlist-thumbnail" src={thumbnail} alt={mix_name} />
                 
@@ -51,6 +52,6 @@ export const MixPlaylistCard = ({ channel_name_list = [], mix_name, thumbnail })
                 <h4 className="playlist-title">{mix_name}</h4>
                 <p className="playlist-channels-list">{channelsString}</p>
             </div>
-        </div>
+        </Link>
     );
 };
