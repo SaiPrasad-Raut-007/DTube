@@ -1,12 +1,43 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './Settings.css';
+import toast from 'react-hot-toast';
 
 export default function SettingsPage() {
     const [profileData, setProfileData] = useState({
-        channelName: 'Code with Sai',
-        handle: '@CodeWithSai',
-        bio: 'Building fully functional clones of popular websites using React, CSS Grid, and Flexbox. Subscribe for weekly tutorials!'
+        username: '',
+        user_handle: '',
+        user_pfp: '',
+        user_bio: ''
     });
+
+    useEffect(() => {
+        const fetchProfile = async () => {
+            const token = localStorage.getItem("dtube_token");
+
+            if (!token) return;
+            try {
+                const response = await fetch("/api/user/profile", {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": `Bearer ${token}`
+                    }
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    setProfileData(data);
+                } else {
+                    console.error("Failed to fetch profile");
+                }
+
+            } catch (error) {
+                console.error("Network error fetching profile: ", error);
+            }
+        };
+
+        fetchProfile();
+    }, []);
 
     const [preferences, setPreferences] = useState({
         autoplay: true,
@@ -16,16 +47,60 @@ export default function SettingsPage() {
     });
 
     const handleInputChange = (e) => {
-        setProfileData({ ...profileData, [e.target.name]: e.target.value });
+        // setProfileData({ ...profileData, [e.target.name]: e.target.value });
+        const { name , value } = e.target;
+        let updatedData = { ...profileData, [name]: value };
+        
+        if (name === "username" && profileData.user_pfp?.includes("ui-avatars.com")) {
+            const formattedName = value.split(" ").join("+");
+            updatedData.user_pfp = `https://ui-avatars.com/api/?name=${formattedName}&background=30A645&color=000&size=256`;
+        }
+
+        setProfileData(updatedData);
     };
 
     const togglePreference = (key) => {
         setPreferences({ ...preferences, [key]: !preferences[key] });
     };
 
-    const handleSave = (e) => {
+    const handleAvatarChange = () => {
+        const newPicURL = window.prompt("Enter the URL of your new profile picture: ");
+
+        if (newPicURL) {
+            setProfileData({ ...profileData, user_pfp: newPicURL });
+        }
+    }
+
+    const handleSave = async (e) => {
         e.preventDefault();
-        console.log("Settings Saved!", { profileData, preferences });
+        const token = localStorage.getItem("dtube_token");
+
+        try {  
+
+            const response = await fetch("/api/user/profile", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                },
+                body: JSON.stringify(profileData),
+            })
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                console.error("Backend rejected the request", data.error);
+                toast.error(data.error);
+            } else {
+                console.log("Settings Saved!", { profileData, preferences });
+                toast.success("Settings Saved!");
+            }
+
+        } catch (error) {
+            console.error("Network or server connection failed: ", error)
+            toast.error("Network error. Please try again.")
+        }
+
     };
 
     return (
@@ -43,19 +118,19 @@ export default function SettingsPage() {
                     
                     <div className="profile-edit-section">
                         <img 
-                            src="https://picsum.photos/seed/sai1/120/120" 
+                            src={profileData?.user_pfp || "https://ui-avatars.com/api/?name=User&background=30A645&color=fff"} 
                             alt="Profile" 
                             className="settings-profile-pic" 
                         />
-                        <button type="button" className="change-pic-btn">Change Avatar</button>
+                        <button type="button" className="change-pic-btn" onClick={() => handleAvatarChange()}>Change Avatar</button>
                     </div>
 
                     <div className="input-group">
                         <label>Channel Name</label>
                         <input 
                             type="text" 
-                            name="channelName"
-                            value={profileData.channelName} 
+                            name="username"
+                            value={profileData.username} 
                             onChange={handleInputChange}
                         />
                     </div>
@@ -64,8 +139,8 @@ export default function SettingsPage() {
                         <label>Handle</label>
                         <input 
                             type="text" 
-                            name="handle"
-                            value={profileData.handle} 
+                            name="user_handle"
+                            value={profileData.user_handle} 
                             onChange={handleInputChange}
                         />
                     </div>
@@ -73,9 +148,9 @@ export default function SettingsPage() {
                     <div className="input-group">
                         <label>Bio / Description</label>
                         <textarea 
-                            name="bio"
+                            name="user_bio"
                             rows="4" 
-                            value={profileData.bio}
+                            value={profileData.user_bio}
                             onChange={handleInputChange}
                         ></textarea>
                     </div>

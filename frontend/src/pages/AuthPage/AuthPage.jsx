@@ -1,22 +1,89 @@
 import { useState } from 'react';
 import './AuthPage.css';
 import logo from '../../assets/logo.png'; 
+import { useNavigate } from 'react-router-dom';
+import toast, { ToastIcon } from 'react-hot-toast';
 
 export default function AuthPage() {
     const [isLogin, setIsLogin] = useState(true);
     const [formData, setFormData] = useState({
         username: '',
+        user_handle: '',
         email: '',
         password: ''
     });
+
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(isLogin ? "Logging in..." : "Registering...", formData);
+        if (!isLogin) {
+            try {
+                const response = await fetch("/api/auth/signup", {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData),
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    console.error("Backend rejected the request:", data.error);
+                    toast.error(data.error);
+                } else {
+                    console.log("User registered successfully!", data);
+                    toast.success("Account created! Please sign-in.")
+                    setIsLogin(true);
+                }
+
+            } catch (error) {
+                console.error("Network or server connection failed:", error);
+                toast.error("Network error. Please try again.")
+            }
+
+        } else {
+            try {
+
+                const loginData = {
+                    email: formData.email,
+                    password: formData.password
+                };
+
+                const response = await fetch("/api/auth/login", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(loginData),
+                })
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    console.error("Login failed", data.error)
+                    toast.error(data.error);
+                } else {
+                    console.log("Login subccesful", data);
+                    toast.success("Welcome back!")
+
+                    localStorage.setItem("dtube_token", data.token);
+
+                    localStorage.setItem("dtube_user", JSON.stringify(data.user));
+
+                    navigate("/");
+                }
+
+            } catch (error) {
+                console.error("Network error during login: ", error);
+                toast.error("Network error. Please try again.")
+            }
+        }
     };
 
     return (
@@ -30,6 +97,7 @@ export default function AuthPage() {
 
                 <form className="auth-form" onSubmit={handleSubmit}>
                     {!isLogin && (
+                        <>
                         <input
                             type="text"
                             name="username"
@@ -39,6 +107,16 @@ export default function AuthPage() {
                             onChange={handleChange}
                             required
                         />
+                        <input
+                            type="text"
+                            name="user_handle"
+                            placeholder="Channel Handle (e.g., @MyChannel)"
+                            className="auth-input"
+                            value={formData.user_handle}
+                            onChange={handleChange}
+                            required
+                        />
+                        </>
                     )}
                     <input
                         type="email"

@@ -1,8 +1,13 @@
+import 'dotenv/config';
 import express from 'express';
 import mongoose from 'mongoose';
+import userRouter from './routes/user.route.js';
+import authRouter from './routes/auth.route.js';
 
 const MONGO_URI = 'mongodb://127.0.0.1:27017/dtube';
 const app = express();
+
+app.use(express.json());
 
 mongoose.connect(MONGO_URI)
     .then(() => {
@@ -17,4 +22,5 @@ mongoose.connect(MONGO_URI)
     })
 
 
-
+app.use("/api/user", userRouter)
+app.use("/api/auth", authRouter)

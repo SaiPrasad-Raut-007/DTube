@@ -34,7 +34,7 @@ const userSchema = new mongoose.Schema({
     },
     user_banner: {
         type: String,
-        default: "" 
+        default: "https://images.unsplash.com/photo-1607453361165-c629a0d1839d?q=80&w=2548&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
     },
     user_pfp: {
         type: String,

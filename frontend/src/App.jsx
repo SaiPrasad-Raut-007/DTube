@@ -2,6 +2,7 @@ import './App.css'
 
 import { useState } from 'react'
 import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
 
 import Sidebar from './components/Sidebar/Sidebar'
 import Header from './components/Header/Header'
@@ -22,6 +23,8 @@ function App() {
 
   return (
     <BrowserRouter>
+      <Toaster position="top-center" reverseOrder={false} />
+      
       <Routes>
         <Route path='/auth' element={<AuthPage />} />
 

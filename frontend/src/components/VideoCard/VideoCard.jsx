@@ -6,10 +6,12 @@ import './SearchVideoCard.css';
 import './PlaylistVideoCard.css';
 
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export const  VideoCard = ({ thumbnail_img, video_title, content_creator, video_length, views, created_at, creator_profile_pic }) => {
+    const navigate = useNavigate();
     return (
-        <Link to="/watch" className="video-card">
+        <div onClick={() => navigate("/watch")} className="video-card">
             <div className="thumbnail-container">
                 <img className="thumbnail-img" src={thumbnail_img} alt={video_title} />
                 <p className="thumbnail-video-length">{video_length}</p>
@@ -25,13 +27,13 @@ export const  VideoCard = ({ thumbnail_img, video_title, content_creator, video_
                     <p className="video-card-views-created-at">{views} • {created_at}</p>
                 </div>
             </div>
-        </Link>
+        </div>
     );
 }
 
 export const VideoCardSidebar = ({ thumbnail_img, video_title, content_creator, video_length, views, created_at, creator_profile_pic }) => {
     return (
-        <Link to="/watch" className="video-card-sidebar">
+        <div onClick={() => navigate("/watch")} className="video-card-sidebar">
             <div className="thumbnail-container">
                 <img className="thumbnail-img" src={thumbnail_img} alt={video_title} />
                 <p className="thumbnail-video-length">{video_length}</p>
@@ -46,13 +48,13 @@ export const VideoCardSidebar = ({ thumbnail_img, video_title, content_creator, 
                     <p className="video-card-views-created-at">{views} • {created_at}</p>
                 </div>
             </div>
-        </Link>
+        </div>
     )
 }
 
 export const FeaturedVideoCard = ({ thumbnail_img, video_title, video_length, views, created_at, video_description }) => {
     return (
-        <Link to="/watch" className="featured-video-card">
+        <div onClick={() => navigate("/watch")} className="featured-video-card">
             <div className="featured-thumbnail-container">
                 <img className="featured-thumbnail" src={thumbnail_img} alt={video_title} />
                 <p className="featured-video-length">{video_length}</p>
@@ -63,13 +65,13 @@ export const FeaturedVideoCard = ({ thumbnail_img, video_title, video_length, vi
                 <p className="featured-stats">{views} • {created_at}</p>
                 <p className="featured-description">{video_description}</p>
             </div>
-        </Link>
+        </div>
     );
 }
 
 export const ChannelVideoCard = ({ thumbnail_img, video_title, video_length, views, created_at }) => {
     return (
-        <Link to="/watch" className="channel-video-card">
+        <div onClick={() => navigate("/watch")} className="channel-video-card">
             <div className="channel-thumbnail-container">
                 <img className="channel-thumbnail" src={thumbnail_img} alt={video_title} />
                 <p className="channel-video-length">{video_length}</p>
@@ -79,7 +81,7 @@ export const ChannelVideoCard = ({ thumbnail_img, video_title, video_length, vie
                 <h4 className="channel-title">{video_title}</h4>
                 <p className="channel-stats">{views} • {created_at}</p>
             </div>
-        </Link>
+        </div>
     );
 }
 
@@ -94,7 +96,7 @@ export const SearchVideoCard = ({
     video_description = "In this video, we cover everything you need to know to master this topic from scratch. Subscribe for more weekly tutorials!" 
 }) => {
     return (
-        <Link to="/watch" className="search-video-card">
+        <div onClick={() => navigate("/watch")} className="search-video-card">
             <div className="search-thumbnail-container">
                 <img className="search-thumbnail" src={thumbnail_img} alt={video_title} />
                 <span className="search-video-length">{video_length}</span>
@@ -111,7 +113,7 @@ export const SearchVideoCard = ({
                 
                 <p className="search-video-description">{video_description}</p>
             </div>
-        </Link>
+        </div>
     );
 }
 
@@ -125,7 +127,7 @@ export const PlaylistVideoCard = ({
     created_at 
 }) => {
     return (
-        <Link to="/watch" className="playlist-video-card">
+        <div onClick={() => {"/watch"}} className="playlist-video-card">
             <div className="playlist-video-index">
                 {index}
             </div>
@@ -145,6 +147,6 @@ export const PlaylistVideoCard = ({
             <button className="playlist-video-options">
                 <span className="material-symbols-rounded">more_vert</span>
             </button>
-        </Link>
+        </div>
     );
 }
