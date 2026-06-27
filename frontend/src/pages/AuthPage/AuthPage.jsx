@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './AuthPage.css';
 import logo from '../../assets/logo.png'; 
 import { useNavigate } from 'react-router-dom';
-import toast, { ToastIcon } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 
 export default function AuthPage() {
     const [isLogin, setIsLogin] = useState(true);
