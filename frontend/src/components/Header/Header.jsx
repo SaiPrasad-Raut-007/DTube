@@ -3,7 +3,8 @@ import './Header.css';
 import { useState, useEffect } from "react"
 import SearchBar from "./SearchBar"
 import logo from "../../assets/logo.png"
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, Navigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 export default function Header({sidebarActive, setSidebarActive}) {
 
@@ -16,7 +17,11 @@ export default function Header({sidebarActive, setSidebarActive}) {
         const fetchUserProfile = async () => {
             const token = localStorage.getItem("dtube_token");
 
-            if (!token) return;
+            if (!token) {
+                navigate("/auth");
+                toast.error("Please sign-in to use DTube");
+                return;
+            }
             try {
                 const response = await fetch("/api/user/profile", {
                     method: "GET",
