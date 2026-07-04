@@ -49,7 +49,7 @@ Follow these steps to run DTube on your local machine for testing and developmen
 
 ### 1. Clone the Repository
 ```bash
-git clone [https://github.com/yourusername/dtube.git](https://github.com/yourusername/dtube.git)
+git clone https://github.com/SaiPrasad-Raut-007/DTube.git
 cd dtube
 ```
 ### 2. Environment Variables
