@@ -113,7 +113,7 @@ export const sendResetMail = async (req, res) => {
     const user = req.targetUser;
     const token = req.resetToken;
 
-    const clientUrl = "http://localhost:5173";
+    const clientUrl = process.env.CLIENT_URL;
     const resetLink = `${clientUrl}/reset-password/${token}`;
 
     const transporter = nodemailer.createTransport({

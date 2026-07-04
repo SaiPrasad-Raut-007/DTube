@@ -1,0 +1,96 @@
+[{
+  "_id": {
+    "$oid": "6a48bc691485b86175b0b457"
+  },
+  "text": "Awwwwwwwwwwwwwwwwwww",
+  "author": {
+    "$oid": "6a48bafb1485b86175b0b453"
+  },
+  "video_id": {
+    "$oid": "6a48b33d1485b86175b0b445"
+  },
+  "parent_comment_id": null,
+  "reply_count": 1,
+  "likes": [
+    null
+  ],
+  "createdAt": {
+    "$date": "2026-07-04T07:55:21.879Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-04T07:56:35.022Z"
+  },
+  "__v": 3
+},
+{
+  "_id": {
+    "$oid": "6a48bcb31485b86175b0b458"
+  },
+  "text": "Yea right?",
+  "author": {
+    "$oid": "6a48b8921485b86175b0b44b"
+  },
+  "video_id": {
+    "$oid": "6a48b33d1485b86175b0b445"
+  },
+  "parent_comment_id": {
+    "$oid": "6a48bc691485b86175b0b457"
+  },
+  "reply_count": 0,
+  "likes": [],
+  "createdAt": {
+    "$date": "2026-07-04T07:56:35.019Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-04T07:56:35.019Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a48bccb1485b86175b0b459"
+  },
+  "text": "My heart is melting right now 🫠🫠🫠",
+  "author": {
+    "$oid": "6a48b8921485b86175b0b44b"
+  },
+  "video_id": {
+    "$oid": "6a48b33d1485b86175b0b445"
+  },
+  "parent_comment_id": null,
+  "reply_count": 1,
+  "likes": [
+    null
+  ],
+  "createdAt": {
+    "$date": "2026-07-04T07:56:59.088Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-04T07:57:53.464Z"
+  },
+  "__v": 1
+},
+{
+  "_id": {
+    "$oid": "6a48bd011485b86175b0b45a"
+  },
+  "text": "Cats are so cute",
+  "author": {
+    "$oid": "6a48bafb1485b86175b0b453"
+  },
+  "video_id": {
+    "$oid": "6a48b33d1485b86175b0b445"
+  },
+  "parent_comment_id": {
+    "$oid": "6a48bccb1485b86175b0b459"
+  },
+  "reply_count": 0,
+  "likes": [],
+  "createdAt": {
+    "$date": "2026-07-04T07:57:53.461Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-04T07:57:53.461Z"
+  },
+  "__v": 0
+}]

@@ -1,0 +1,93 @@
+[{
+  "_id": {
+    "$oid": "6a48b49f1485b86175b0b446"
+  },
+  "name": "Cat Videos",
+  "videos": [
+    {
+      "$oid": "6a48b33d1485b86175b0b445"
+    },
+    {
+      "$oid": "6a48b2e41485b86175b0b444"
+    },
+    {
+      "$oid": "6a48b2c11485b86175b0b443"
+    }
+  ],
+  "creator": {
+    "$oid": "6a48aea81485b86175b0b441"
+  },
+  "createdAt": {
+    "$date": "2026-07-04T07:22:07.800Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-04T07:22:19.549Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a48b9321485b86175b0b44d"
+  },
+  "name": "Memes i found funny....",
+  "videos": [
+    {
+      "$oid": "6a48b90f1485b86175b0b44c"
+    }
+  ],
+  "creator": {
+    "$oid": "6a48b8921485b86175b0b44b"
+  },
+  "createdAt": {
+    "$date": "2026-07-04T07:41:38.956Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-04T07:41:42.152Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a48b99c1485b86175b0b44f"
+  },
+  "name": "Things i am in love with...",
+  "videos": [
+    {
+      "$oid": "6a48b9751485b86175b0b44e"
+    }
+  ],
+  "creator": {
+    "$oid": "6a48b8921485b86175b0b44b"
+  },
+  "createdAt": {
+    "$date": "2026-07-04T07:43:24.778Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-04T07:43:29.405Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a48ba2a1485b86175b0b452"
+  },
+  "name": "Japan Vlog",
+  "videos": [
+    {
+      "$oid": "6a48ba0e1485b86175b0b451"
+    },
+    {
+      "$oid": "6a48b9ef1485b86175b0b450"
+    }
+  ],
+  "creator": {
+    "$oid": "6a48b8921485b86175b0b44b"
+  },
+  "createdAt": {
+    "$date": "2026-07-04T07:45:46.444Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-04T07:45:53.716Z"
+  },
+  "__v": 0
+}]

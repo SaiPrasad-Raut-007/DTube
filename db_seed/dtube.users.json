@@ -1,0 +1,162 @@
+[{
+  "_id": {
+    "$oid": "6a48aea81485b86175b0b441"
+  },
+  "username": "Sai Prasad Raut",
+  "user_handle": "@SaiPrasadRaut",
+  "email": "saiprasad.raut.3k@gmail.com",
+  "password": "$2b$10$O.V8yGzXmweXP7Vy50A4UO671NHH0191WN0keoFyTDZ2ctJDeDm1i",
+  "role": "User",
+  "user_bio": "Creator of DTube",
+  "user_banner": "https://dtube-s3-videos-and-images.s3.ap-south-2.amazonaws.com/images/1783148375098-Desktop%20Wallpaper.jpg",
+  "user_pfp": "https://dtube-s3-videos-and-images.s3.ap-south-2.amazonaws.com/images/1783148374532-OIP-1104150782.jpg",
+  "isBanned": false,
+  "subscribed_to": [],
+  "subscribers": [
+    {
+      "$oid": "6a48bafb1485b86175b0b453"
+    }
+  ],
+  "watch_history": [],
+  "liked_videos": [],
+  "createdAt": {
+    "$date": "2026-07-04T06:56:40.656Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-04T07:58:26.994Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a48b5d61485b86175b0b447"
+  },
+  "username": "The Artist",
+  "user_handle": "@Bittu",
+  "email": "bittuji@gmail.com",
+  "password": "$2b$10$uHfHfsXJbAXcw55UPkKSjOGHpQKtZ9gzFSYBEGdZK9tlQbyCR0Jay",
+  "role": "User",
+  "user_bio": "Hi. I am Bittu... a indie artist working in a shed",
+  "user_banner": "https://dtube-s3-videos-and-images.s3.ap-south-2.amazonaws.com/images/1783150324960-wallhaven-rq3qxm.png",
+  "user_pfp": "https://dtube-s3-videos-and-images.s3.ap-south-2.amazonaws.com/images/1783150324030-wallhaven-rdkprq.jpg",
+  "isBanned": false,
+  "subscribed_to": [],
+  "subscribers": [
+    {
+      "$oid": "6a48bafb1485b86175b0b453"
+    }
+  ],
+  "watch_history": [],
+  "liked_videos": [],
+  "createdAt": {
+    "$date": "2026-07-04T07:27:18.242Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-04T07:58:19.453Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a48b8921485b86175b0b44b"
+  },
+  "username": "AxiumOpus",
+  "user_handle": "@Axee",
+  "email": "saiprasad.raut.7k@gmail.com",
+  "password": "$2b$10$.U.vljylJm6jb6ohv2yPvepmtuJhzEhJ/X59gzem0MPzDAyvB6UJ6",
+  "role": "User",
+  "user_bio": "This is Axee... Welcome to my channel!!!",
+  "user_banner": "https://images.unsplash.com/photo-1607453361165-c629a0d1839d?q=80&w=2548&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "user_pfp": "https://dtube-s3-videos-and-images.s3.ap-south-2.amazonaws.com/images/1783150807364-Desktop%20Wallpaper.jpg",
+  "isBanned": false,
+  "subscribed_to": [],
+  "subscribers": [
+    {
+      "$oid": "6a48bafb1485b86175b0b453"
+    }
+  ],
+  "watch_history": [
+    {
+      "$oid": "6a48b33d1485b86175b0b445"
+    }
+  ],
+  "liked_videos": [],
+  "createdAt": {
+    "$date": "2026-07-04T07:38:58.004Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-04T07:56:21.516Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a48bafb1485b86175b0b453"
+  },
+  "username": "Mr.WhoIsNotTheGuy",
+  "user_handle": "@i_am_not_the_guy",
+  "email": "whoisnottheguy@gmail.com",
+  "password": "$2b$10$RWSTGMq0VMOn8FaF/1RAl.dtuvsbMCsBlJJ/3rTzYcrEjd0BHveGG",
+  "role": "User",
+  "user_bio": "Welcome to my channel!",
+  "user_banner": "https://images.unsplash.com/photo-1607453361165-c629a0d1839d?q=80&w=2548&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "user_pfp": "https://ui-avatars.com/api/?name=Mr.WhoIsNotTheGuy&background=30A645&color=000&size=256",
+  "isBanned": false,
+  "subscribed_to": [
+    {
+      "$oid": "6a48bafb1485b86175b0b453"
+    },
+    {
+      "$oid": "6a48b8921485b86175b0b44b"
+    },
+    {
+      "$oid": "6a48b5d61485b86175b0b447"
+    },
+    {
+      "$oid": "6a48aea81485b86175b0b441"
+    }
+  ],
+  "subscribers": [
+    {
+      "$oid": "6a48bafb1485b86175b0b453"
+    }
+  ],
+  "watch_history": [
+    {
+      "$oid": "6a48bb9f1485b86175b0b456"
+    },
+    {
+      "$oid": "6a48ba0e1485b86175b0b451"
+    },
+    {
+      "$oid": "6a48b33d1485b86175b0b445"
+    },
+    {
+      "$oid": "6a48bb331485b86175b0b454"
+    },
+    {
+      "$oid": "6a48b27a1485b86175b0b442"
+    }
+  ],
+  "liked_videos": [
+    {
+      "$oid": "6a48ba0e1485b86175b0b451"
+    },
+    {
+      "$oid": "6a48b33d1485b86175b0b445"
+    },
+    {
+      "$oid": "6a48bb331485b86175b0b454"
+    },
+    {
+      "$oid": "6a48b27a1485b86175b0b442"
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-04T07:49:15.723Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-04T10:17:31.828Z"
+  },
+  "__v": 0
+}]

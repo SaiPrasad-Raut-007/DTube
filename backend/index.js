@@ -8,7 +8,7 @@ import playlistsRouter from "./routes/playlist.route.js";
 import commentRouter from "./routes/comment.route.js";
 import adminRouter from "./routes/admin.route.js";
 
-const MONGO_URI = "mongodb://127.0.0.1:27017/dtube";
+const MONGO_URI = process.env.MONGO_URI;
 const app = express();
 
 app.use(express.json());
@@ -18,8 +18,8 @@ mongoose
   .then(() => {
     console.log("Success... Connected to Database");
 
-    app.listen(3000, () => {
-      console.log("Server is running on port 3000!");
+    app.listen(process.env.PORT, () => {
+      console.log(`Server is running on port ${process.env.PORT}!`);
     });
   })
   .catch((err) => {
