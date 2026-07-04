@@ -9,11 +9,11 @@
 
 .video-card-sidebar {
     display: flex;
-    flex-direction: row; 
-    gap: 8px; 
+    flex-direction: row;
+    gap: 8px;
     margin-bottom: 8px;
     cursor: pointer;
-    width: 100%; 
+    width: 100%;
     padding: 8px;
     border-radius: 12px;
 }
@@ -23,15 +23,15 @@
 }
 
 .video-card-sidebar .thumbnail-container {
-    width: 168px; 
-    flex-shrink: 0; 
+    width: 168px;
+    flex-shrink: 0;
     position: relative;
-    margin-bottom: 0; 
+    margin-bottom: 0;
 }
 
 .video-card-sidebar .thumbnail-img {
     width: 100%;
-    border-radius: 8px; 
+    border-radius: 8px;
     aspect-ratio: 16 / 9;
     object-fit: cover;
 }
@@ -56,7 +56,7 @@
 }
 
 .video-card-sidebar .creator-profile-pic {
-    display: none; 
+    display: none;
 }
 
 .video-card-sidebar .video-info {
@@ -64,13 +64,13 @@
 }
 
 .video-card-sidebar .video-card-title {
-    font-size: 0.875rem; 
+    font-size: 0.875rem;
     margin: 0 0 4px 0;
-    color: rgb(212, 212, 212); 
+    color: rgb(212, 212, 212);
     line-height: 1.4;
-    
+
     display: -webkit-box;
-    /* -webkit-line-clamp: 2; */
+
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -78,8 +78,8 @@
 
 .video-card-sidebar .video-card-content-creator,
 .video-card-sidebar .video-card-views-created-at {
-    font-size: 0.75rem; 
-    color: #aaaaaa; 
+    font-size: 0.75rem;
+    color: #aaaaaa;
     margin: 0;
     line-height: 1.2;
 }

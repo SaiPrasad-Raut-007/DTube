@@ -27,7 +27,7 @@
 
 .playlist-video-thumbnail-container {
     position: relative;
-    width: 160px; 
+    width: 160px;
     flex-shrink: 0;
     border-radius: 8px;
     overflow: hidden;
@@ -88,8 +88,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 0; 
-    transition: opacity 0.2s, background-color 0.2s;
+    opacity: 0;
+    transition:
+        opacity 0.2s,
+        background-color 0.2s;
 }
 
 .playlist-video-options:hover {
@@ -114,6 +116,6 @@
         width: 120px;
     }
     .playlist-video-index {
-        display: none; 
+        display: none;
     }
 }

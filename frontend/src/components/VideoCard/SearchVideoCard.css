@@ -14,7 +14,7 @@
 .search-thumbnail-container {
     position: relative;
     flex-shrink: 0;
-    width: 360px; 
+    width: 360px;
     border-radius: 12px;
     overflow: hidden;
 }
@@ -47,7 +47,7 @@
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    min-width: 0; 
+    min-width: 0;
     padding-top: 4px;
 }
 
@@ -68,7 +68,6 @@
     margin: 0 0 12px 0;
 }
 
-/* ── Creator Info ── */
 .search-video-creator {
     display: flex;
     align-items: center;
@@ -105,9 +104,9 @@
 
 @media (max-width: 768px) {
     .search-video-card {
-        flex-direction: column; 
+        flex-direction: column;
     }
-    
+
     .search-thumbnail-container {
         width: 100%;
     }

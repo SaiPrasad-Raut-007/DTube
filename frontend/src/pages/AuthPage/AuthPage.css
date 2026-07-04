@@ -11,7 +11,7 @@
 .auth-card {
     width: 100%;
     max-width: 400px;
-    background-color: #0f0f0f; 
+    background-color: #0f0f0f;
     border: 1px solid #303030;
     border-radius: 12px;
     padding: 48px 32px;
@@ -65,7 +65,7 @@
 }
 
 .auth-input:focus {
-    border-color: #30A645;
+    border-color: #30a645;
 }
 
 .auth-submit-btn {
@@ -75,7 +75,7 @@
     font-size: 1rem;
     font-weight: 500;
     color: #0f0f0f;
-    background-color: #30A645;
+    background-color: #30a645;
     border: none;
     border-radius: 18px;
     cursor: pointer;
@@ -83,7 +83,7 @@
 }
 
 .auth-submit-btn:hover {
-    background-color: #30A645;
+    background-color: #30a645;
 }
 
 .auth-toggle {
@@ -99,7 +99,7 @@
 .auth-toggle-btn {
     background: transparent;
     border: none;
-    color: #30A645;
+    color: #30a645;
     font-weight: 500;
     font-size: 0.875rem;
     cursor: pointer;
@@ -110,4 +110,11 @@
 
 .auth-toggle-btn:hover {
     text-decoration: underline;
+}
+
+.forget-password-link {
+    color: #30a645;
+    font-size: small;
+    align-self: center;
+    cursor: pointer;
 }

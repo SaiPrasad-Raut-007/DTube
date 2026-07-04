@@ -12,7 +12,7 @@
 .featured-thumbnail-container {
     position: relative;
     flex-shrink: 0;
-    width: 424px; 
+    width: 424px;
 }
 
 .featured-thumbnail {
@@ -62,7 +62,7 @@
     margin: 0;
     line-height: 1.4;
     display: -webkit-box;
-    /* -webkit-line-clamp: 3; */
+
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;

@@ -1,0 +1,52 @@
+.video-options-wrapper {
+    position: relative;
+    display: inline-block;
+    margin-left: auto;
+}
+
+.options-icon-btn {
+    background: transparent;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.options-icon-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.options-dropdown {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: #282828;
+    border: 1px solid #3f3f3f;
+    border-radius: 8px;
+    padding: 8px 0;
+    z-index: 100;
+    min-width: 150px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.dropdown-delete-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: none;
+    color: #ff4a4a;
+    width: 100%;
+    padding: 8px 16px;
+    cursor: pointer;
+    text-align: left;
+    font-size: 14px;
+}
+
+.dropdown-delete-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}

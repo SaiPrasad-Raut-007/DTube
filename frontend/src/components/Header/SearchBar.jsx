@@ -1,37 +1,36 @@
-import { useState } from "react"
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function SearchBar() {
-    const [query, setQuery] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
+  const navigate = useNavigate();
 
-    const handleSearch = () => {
-        if (query.trim() === "") return
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (searchTerm.trim()) {
+      navigate(`/search?q=${encodeURIComponent(searchTerm)}`);
     }
+  };
 
-    const handleKeyDown = (e) => {
-        if (e.key === "Enter") handleSearch()
-    }
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") handleSearch();
+  };
 
-    return (
-        <div className="search-bar-container">
-
-            <div className="search-bar">
-                <input
-                    type="text"
-                    className="search-input"
-                    placeholder="Search"
-                    value={query}
-                    onChange={(e) => setQuery(e.target.value)}
-                    onKeyDown={handleKeyDown}
-                />
-                <button className="search-button" onClick={handleSearch}>
-                    <span className="material-symbols-rounded">search</span>
-                </button>
-            </div>
-
-            <button className="mic-button">
-                <span className="material-symbols-rounded">mic</span>
-            </button>
-
-        </div>
-    )
+  return (
+    <div className="search-bar-container">
+      <div className="search-bar">
+        <input
+          type="text"
+          className="search-input"
+          placeholder="Search"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          onKeyDown={handleKeyDown}
+        />
+        <button className="search-button" onClick={handleSearch}>
+          <span className="material-symbols-rounded">search</span>
+        </button>
+      </div>
+    </div>
+  );
 }

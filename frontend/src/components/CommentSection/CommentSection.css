@@ -20,7 +20,7 @@
     height: 40px;
     border-radius: 50%;
     object-fit: cover;
-    flex-shrink: 0; 
+    flex-shrink: 0;
 }
 
 .comment-content {
@@ -60,7 +60,7 @@
     gap: 12px;
 }
 
-.comment-action-btn, 
+.comment-action-btn,
 .comment-reply-btn {
     background: transparent;
     border: none;
@@ -92,4 +92,135 @@
 
 .comment-reply-btn:hover {
     background-color: #272727;
+}
+
+.comment-input-container {
+    display: flex;
+    gap: 16px;
+    margin-top: 24px;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.comment-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #3f3f3f;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 600;
+    overflow: hidden;
+}
+
+.comment-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.comment-form {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.comment-text-input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #3f3f3f;
+    color: #f1f1f1;
+    font-size: 14px;
+    padding: 4px 0 8px 0;
+    outline: none;
+    transition: border-bottom-color 0.2s ease;
+}
+
+.comment-text-input:focus {
+    border-bottom: 2px solid #30a645;
+    padding-bottom: 7px;
+}
+
+.comment-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.comment-actions button {
+    padding: 8px 16px;
+    border-radius: 18px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    transition:
+        background-color 0.2s ease,
+        opacity 0.2s ease;
+}
+
+.cancel-btn {
+    background-color: transparent;
+    color: #f1f1f1;
+}
+
+.cancel-btn:hover:not(:disabled) {
+    background-color: #3f3f3f;
+}
+
+.submit-btn {
+    background-color: #30a645;
+    color: #ffffff;
+}
+
+.submit-btn:hover:not(:disabled) {
+    background-color: #258336;
+}
+
+.comment-actions button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.replies-container {
+    margin-left: 56px;
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.toggle-replies-btn {
+    background: none;
+    border: none;
+    color: #258336;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 8px 16px;
+    border-radius: 18px;
+    width: fit-content;
+    transition: background-color 0.2s ease;
+}
+
+.toggle-replies-btn:hover {
+    background-color: #2583361f;
+}
+
+.reply-card {
+    transform: scale(0.95);
+    transform-origin: left top;
+}
+
+.material-filled {
+    font-variation-settings:
+        "FILL" 1,
+        "wght" 400,
+        "GRAD" 0,
+        "opsz" 24;
 }

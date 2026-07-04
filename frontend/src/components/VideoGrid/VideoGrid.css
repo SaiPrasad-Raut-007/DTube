@@ -39,10 +39,10 @@
     gap: 16px;
     overflow-x: auto;
     scroll-behavior: smooth;
-    padding: 0 24px 16px 24px; 
+    padding: 0 24px 16px 24px;
     -webkit-overflow-scrolling: touch;
-    -ms-overflow-style: none;  
-    scrollbar-width: none;  
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 .video-grid-track::-webkit-scrollbar {
@@ -51,7 +51,7 @@
 
 .video-card-wrapper {
     width: 210px;
-    flex-shrink: 0; 
+    flex-shrink: 0;
 }
 
 .slider-button {
@@ -69,8 +69,8 @@
     cursor: pointer;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
     transition: background-color 0.2s;
-    /* Vertically center the button based on the thumbnail height (approx 118px) */
-    top: 59px; 
+
+    top: 59px;
     transform: translateY(-50%);
 }
 
@@ -83,7 +83,7 @@
 }
 
 .right-slider-button {
-    right: 4px; 
+    right: 4px;
 }
 
 .slider-button .material-symbols-rounded {

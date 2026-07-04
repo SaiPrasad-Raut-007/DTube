@@ -4,24 +4,23 @@
     box-sizing: border-box;
 }
 
-body, html {
-    background-color: #0f0f0f; 
+body,
+html {
+    background-color: #0f0f0f;
     color: #f1f1f1;
     font-family: Roboto, Arial, sans-serif;
-    overflow-x: hidden; 
+    overflow-x: hidden;
 }
 
-/* ── Main layout ────────────────────────────────── */
 .app-layout {
-    margin-left: 240px; 
+    margin-left: 240px;
     margin-top: 56px;
     background-color: #0f0f0f;
     min-height: calc(100vh - 56px);
     color: #f1f1f1;
-    transition: margin-left 0.15s ease-in-out; 
+    transition: margin-left 0.15s ease-in-out;
 }
 
-/* ── When the sidebar is collapsed ──────────── */
 .app-layout.collapsed {
-    margin-left: 72px; 
+    margin-left: 72px;
 }

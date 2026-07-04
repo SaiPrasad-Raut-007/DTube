@@ -1,63 +1,329 @@
-import './CommentSection.css';
+import toast from "react-hot-toast";
+import "./CommentSection.css";
+import { useState, useEffect } from "react";
+import formatTimeAgo from "../../FormatTimeAgo";
 
-const DUMMY_COMMENTS = [
-    { id: "c1", user_name: "ReactNinja22", user_pic: "https://picsum.photos/seed/c1/40/40", created_at: "2 hours ago", comment: "This is exactly what I was looking for! Your explanation of CSS Grid saved me so much headache.", likes: 45, dislikes: 0 },
-    { id: "c2", user_name: "FrontendMaster", user_pic: "https://picsum.photos/seed/c2/40/40", created_at: "5 hours ago", comment: "Great tutorial, but could you do a follow-up on how to implement the search bar functionality?", likes: 12, dislikes: 0 },
-    { id: "c3", user_name: "DesignSystemGuru", user_pic: "https://picsum.photos/seed/c3/40/40", created_at: "1 day ago", comment: "The dark mode styling is completely on point. Looks exactly like the real thing.", likes: 89, dislikes: 0 },
-    { id: "c4", user_name: "JuniorDevLife", user_pic: "https://picsum.photos/seed/c4/40/40", created_at: "1 day ago", comment: "I paused the video 50 times trying to type all this out 😂 Worth it though!", likes: 230, dislikes: 0 },
-    { id: "c5", user_name: "CodeWithSai_Fan", user_pic: "https://picsum.photos/seed/c5/40/40", created_at: "2 days ago", comment: "First! Love the content as always.", likes: 4, dislikes: 0 },
-    { id: "c6", user_name: "BackendBros", user_pic: "https://picsum.photos/seed/c6/40/40", created_at: "3 days ago", comment: "Now connect this to a Node.js backend and MongoDB database. That would be an epic project.", likes: 56, dislikes: 0 },
-    { id: "c7", user_name: "CSS_Hater", user_pic: "https://picsum.photos/seed/c7/40/40", created_at: "4 days ago", comment: "Why flexbox instead of grid for the sidebar?", likes: 2, dislikes: 0 },
-    { id: "c8", user_name: "WebDevJourney", user_pic: "https://picsum.photos/seed/c8/40/40", created_at: "1 week ago", comment: "The way you broke down component splitting really helped it click for me. Thank you!", likes: 15, dislikes: 0 },
-    { id: "c9", user_name: "BugHunter", user_pic: "https://picsum.photos/seed/c9/40/40", created_at: "1 week ago", comment: "At 14:20 you forgot a closing div tag, just a heads up for anyone watching!", likes: 104, dislikes: 0 },
-    { id: "c10", user_name: "UIUX_Daily", user_pic: "https://picsum.photos/seed/c10/40/40", created_at: "2 weeks ago", comment: "Beautiful UI. The spacing and typography choices are very satisfying.", likes: 33, dislikes: 0 }
-];
+export default function CommentSection({ userData, videoId }) {
+  const [comments, setComments] = useState([]);
 
-export default function CommentSection() {
-    return (
-        <div className="comment-section">
-            <h3 className="comment-count">{DUMMY_COMMENTS.length} Comments</h3>
-            
-            {DUMMY_COMMENTS.map((comment) => (
-                <CommentCard
-                    key={comment.id}
-                    user_name={comment.user_name}
-                    user_pic={comment.user_pic}
-                    created_at={comment.created_at}
-                    comment={comment.comment}
-                    likes={comment.likes}
-                    dislikes={comment.dislikes}
-                />
-            ))}
-        </div>
-    );
+  useEffect(() => {
+    const fetchComments = async () => {
+      try {
+        const response = await fetch(`/api/comments/fetch/${videoId}`);
+        if (response.ok) {
+          const data = await response.json();
+          setComments(data);
+        }
+      } catch (error) {
+        console.error(error);
+        toast.error("Error fetching comments. Please reload the page.");
+      }
+    };
+    if (videoId) {
+      fetchComments();
+    }
+  }, [videoId]);
+
+  const handleCreateComment = async (text) => {
+    try {
+      const response = await fetch(`/api/comments/create/${videoId}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          authorization: `Bearer ${localStorage.getItem("dtube_token")}`,
+        },
+        body: JSON.stringify({ text }),
+      });
+      if (response.ok) {
+        const newComment = await response.json();
+        setComments([newComment, ...comments]);
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error("Error creating comment. Please try again.");
+    }
+  };
+
+  const handleLike = async (commentId) => {
+    try {
+      const response = await fetch(`/api/comments/like/${commentId}`, {
+        method: "POST",
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("dtube_token")}`,
+        },
+      });
+      if (response.ok) {
+        const data = await response.json();
+        setComments(
+          comments.map((c) =>
+            c._id === commentId
+              ? { ...c, likes: Array.from({ length: data.likesCount }) }
+              : c,
+          ),
+        );
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handleReply = async (commentId, text) => {
+    try {
+      const response = await fetch(`/api/comments/create/${videoId}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          authorization: `Bearer ${localStorage.getItem("dtube_token")}`,
+        },
+        body: JSON.stringify({ text, parent_comment_id: commentId }),
+      });
+
+      if (response.ok) {
+        const responseData = await fetch(`/api/comments/fetch/${videoId}`);
+        const data = await responseData.json();
+        setComments(data);
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error("Error creating reply. Please try again.");
+    }
+  };
+
+  return (
+    <div className="comment-section">
+      <CommentInput
+        userPfp={userData?.user_pfp}
+        onSubmit={handleCreateComment}
+      />
+      <h3 className="comment-count">{comments.length} Comments</h3>
+
+      {comments.map((comment) => (
+        <CommentCard
+          key={comment._id}
+          commentData={comment}
+          onLike={handleLike}
+          onReply={handleReply}
+          userData={userData}
+        />
+      ))}
+    </div>
+  );
 }
 
-const CommentCard = ({ user_name, user_pic, created_at, comment, likes, dislikes }) => {
-    return (
-        <div className="comment-card">
-            <img className="comment-user-pic" src={user_pic} alt={user_name} />
-            
-            <div className="comment-content">
+const CommentInput = ({ userPfp, onSubmit }) => {
+  const [commentText, setCommentText] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (commentText.trim()) {
+      onSubmit(commentText);
+      setCommentText("");
+    }
+  };
+
+  return (
+    <div className="comment-input-container">
+      <div className="comment-avatar">
+        {userPfp ? <img src={userPfp} alt="Current User" /> : <span>U</span>}
+      </div>
+
+      <form className="comment-form" onSubmit={handleSubmit}>
+        <input
+          type="text"
+          className="comment-text-input"
+          placeholder="Add a comment..."
+          value={commentText}
+          onChange={(e) => setCommentText(e.target.value)}
+        />
+
+        <div className="comment-actions">
+          <button
+            type="button"
+            className="cancel-btn"
+            onClick={() => setCommentText("")}
+            disabled={!commentText}
+          >
+            Cancel
+          </button>
+          <button
+            type="submit"
+            className="submit-btn"
+            disabled={!commentText.trim()}
+          >
+            Comment
+          </button>
+        </div>
+      </form>
+    </div>
+  );
+};
+
+const CommentCard = ({ commentData, onLike, onReply, userData }) => {
+  const [showReplyInput, setShowReplyInput] = useState(false);
+  const [replies, setReplies] = useState([]);
+  const [showReplies, setShowReplies] = useState(false);
+
+  const handleFetchReplies = async () => {
+    if (showReplies) {
+      setShowReplies(false);
+      return;
+    }
+
+    try {
+      const response = await fetch(`/api/comments/replies/${commentData._id}`);
+      if (response.ok) {
+        const data = await response.json();
+        setReplies(data);
+        setShowReplies(true);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handleLikeReply = async (replyId) => {
+    try {
+      const response = await fetch(`/api/comments/like/${replyId}`, {
+        method: "POST",
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("dtube_token")}`,
+        },
+      });
+      if (response.ok) {
+        const data = await response.json();
+        setReplies(
+          replies.map((r) =>
+            r._id === replyId
+              ? { ...r, likes: Array.from({ length: data.likesCount }) }
+              : r,
+          ),
+        );
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handleReplySubmit = async (text) => {
+    await onReply(commentData._id, text);
+    setShowReplyInput(false);
+
+    const response = await fetch(`/api/comments/replies/${commentData._id}`);
+    if (response.ok) {
+      const data = await response.json();
+      setReplies(data);
+      setShowReplies(true);
+    }
+  };
+
+  return (
+    <div className="comment-card-wrapper">
+      <div className="comment-card">
+        <img
+          className="comment-user-pic"
+          src={commentData?.author?.user_pfp}
+          alt={commentData?.author?.username}
+        />
+
+        <div className="comment-content">
+          <div className="comment-header-info">
+            <span className="comment-user-name">
+              @{commentData?.author?.username}
+            </span>
+            <span className="comment-date">
+              {formatTimeAgo(commentData?.createdAt)}
+            </span>
+          </div>
+
+          <p className="comment-text">{commentData.text}</p>
+
+          <div className="comment-actions">
+            <button
+              className="comment-action-btn"
+              onClick={() => onLike(commentData._id)}
+            >
+              <span className="material-symbols-rounded">thumb_up</span>
+              {commentData.likes?.length > 0 && (
+                <span className="comment-like-count">
+                  {commentData.likes.length}
+                </span>
+              )}
+            </button>
+            <button className="comment-action-btn">
+              <span className="material-symbols-rounded">thumb_down</span>
+            </button>
+            <button
+              className="comment-reply-btn"
+              onClick={() => setShowReplyInput(!showReplyInput)}
+            >
+              Reply
+            </button>
+
+            {showReplyInput && (
+              <CommentInput
+                userPfp={userData?.user_pfp}
+                onSubmit={handleReplySubmit}
+              />
+            )}
+
+            {commentData.reply_count > 0 && (
+              <button
+                className="toggle-replies-btn"
+                onClick={handleFetchReplies}
+              >
+                {showReplies
+                  ? "Hide replies"
+                  : `View ${commentData.reply_count} replies`}
+              </button>
+            )}
+          </div>
+        </div>
+      </div>
+
+      {showReplies && (
+        <div className="replies-container">
+          {replies.map((reply) => (
+            <div key={reply._id} className="comment-card reply-card">
+              <img
+                className="comment-user-pic"
+                src={reply?.author?.user_pfp}
+                alt={reply?.author?.username}
+              />
+
+              <div className="comment-content">
                 <div className="comment-header-info">
-                    <span className="comment-user-name">@{user_name}</span>
-                    <span className="comment-date">{created_at}</span>
+                  <span className="comment-user-name">
+                    @{reply?.author?.username}
+                  </span>
+                  <span className="comment-date">
+                    {formatTimeAgo(reply?.createdAt)}
+                  </span>
                 </div>
-                
-                <p className="comment-text">{comment}</p>
-                
+
+                <p className="comment-text">{reply.text}</p>
+
                 <div className="comment-actions">
-                    <button className="comment-action-btn">
-                        <span className="material-symbols-rounded">thumb_up</span>
-                        {/* Only show the number if there are likes */}
-                        {likes > 0 && <span className="comment-like-count">{likes}</span>}
-                    </button>
-                    <button className="comment-action-btn">
-                        <span className="material-symbols-rounded">thumb_down</span>
-                    </button>
-                    <button className="comment-reply-btn">Reply</button>
+                  <button
+                    className="comment-action-btn"
+                    onClick={() => handleLikeReply(reply._id)}
+                  >
+                    <span className="material-symbols-rounded">thumb_up</span>
+                    {reply.likes?.length > 0 && (
+                      <span className="comment-like-count">
+                        {reply.likes.length}
+                      </span>
+                    )}
+                  </button>
+                  <button className="comment-action-btn">
+                    <span className="material-symbols-rounded">thumb_down</span>
+                  </button>
                 </div>
+              </div>
             </div>
+          ))}
         </div>
-    );
-}
+      )}
+    </div>
+  );
+};

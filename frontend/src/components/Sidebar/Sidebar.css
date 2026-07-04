@@ -1,4 +1,3 @@
-/* ── Expanded Sidebar ─────────────────────────── */
 .side-bar {
     width: 240px;
     height: calc(100vh - 56px);
@@ -8,12 +7,14 @@
     top: 56px;
     left: 0;
     overflow-y: auto;
-    scrollbar-width: none; /* hides scrollbar on Firefox */
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    scrollbar-width: none;
+    font-family:
+        "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 .side-bar::-webkit-scrollbar {
-    display: none; /* hides scrollbar on Chrome */
+    display: none;
 }
 
 .side-bar-button {
@@ -109,7 +110,28 @@ Link {
     flex-shrink: 0;
 }
 
-/* ── Collapsed Sidebar ─────────────────────────── */
+.sub-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #3f3f3f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    color: #ffffff;
+    font-size: 14px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.sub-avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
 .collapsed-side-bar {
     width: 72px;
     height: calc(100vh - 56px);
@@ -122,7 +144,9 @@ Link {
     top: 56px;
     left: 0;
     z-index: 100;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family:
+        "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 .collapsed-side-bar-button {
@@ -151,7 +175,7 @@ Link {
 .collapsed-label {
     font-size: 10px;
     text-align: center;
-    white-space: nowrap; 
+    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 100%;
@@ -160,6 +184,6 @@ Link {
 
 .collapsed-side-bar-button,
 .side-bar-button {
-    text-decoration: none; 
-    color: inherit;        
+    text-decoration: none;
+    color: inherit;
 }

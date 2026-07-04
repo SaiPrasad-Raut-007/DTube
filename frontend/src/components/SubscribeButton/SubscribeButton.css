@@ -1,0 +1,45 @@
+.subscribe-button {
+    padding: 10px 16px;
+    border-radius: 18px;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.1s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 110px;
+}
+
+.subscribe-button.unsubscribe {
+    background-color: #30a645;
+    color: #ffffff;
+}
+
+.subscribe-button.unsubscribe:hover {
+    background-color: #258336;
+}
+
+.subscribe-button.subscribed {
+    background-color: #272727;
+    color: #30a645;
+}
+
+.subscribe-button.subscribed:hover {
+    background-color: #3f3f3f;
+    color: #3ed458;
+}
+
+.subscribe-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.subscribe-button:active:not(:disabled) {
+    transform: scale(0.96);
+}
