@@ -1,5 +1,5 @@
 import "./VideoCard.css";
-import "./VIdeoCardSidebar.css";
+import "./VideoCardSidebar.css";
 import "./FeaturedVideoCard.css";
 import "./ChannelVideoCard.css";
 import "./SearchVideoCard.css";
