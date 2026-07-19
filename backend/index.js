@@ -18,9 +18,11 @@ mongoose
   .then(() => {
     console.log("Success... Connected to Database");
 
-    app.listen(process.env.PORT, () => {
-      console.log(`Server is running on port ${process.env.PORT}!`);
-    });
+    if (process.env.NODE_ENV !== "production") {
+        app.listen(process.env.PORT, () => {
+          console.log(`Server is running on port ${process.env.PORT}!`);
+        });
+      }
   })
   .catch((err) => {
     console.log("Error connecting to the Database: ", err);
@@ -32,3 +34,5 @@ app.use("/api/videos", videoRouter);
 app.use("/api/playlists", playlistsRouter);
 app.use("/api/comments", commentRouter);
 app.use("/api/admin", adminRouter);
+
+export default app;
